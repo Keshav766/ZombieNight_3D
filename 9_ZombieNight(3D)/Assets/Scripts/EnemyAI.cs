@@ -42,20 +42,25 @@ public class EnemyAI : MonoBehaviour
         {
             ChasePlayer();
         }
+       
         if(distanceToPlayer <= enemyNavMeshRef.stoppingDistance)
         {
             AttckPlayer();
         }
+    
         
     }
 
     private void ChasePlayer()
     {
+        GetComponent<Animator>().SetBool("attack", false);
+        GetComponent<Animator>().SetTrigger("move");
         enemyNavMeshRef.SetDestination(playerRef.position);
     }
 
     void AttckPlayer()
     {
+        GetComponent<Animator>().SetBool("attack", true);
         Debug.Log("I will attack bitch");
     }
 
