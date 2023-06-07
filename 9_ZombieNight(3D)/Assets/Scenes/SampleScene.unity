@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -314,27 +314,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2337074159488561674, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.184
+      value: 0.115
       objectReference: {fileID: 0}
     - target: {fileID: 2337074159488561674, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.105
+      value: -0.095
       objectReference: {fileID: 0}
     - target: {fileID: 2337074159488561674, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.43
+      value: 0.425
       objectReference: {fileID: 0}
     - target: {fileID: 2337074159488561674, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6840853
+      value: 0.68372947
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337074159488561674, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.023521546
       objectReference: {fileID: 0}
     - target: {fileID: 2337074159488561674, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.729402
+      value: -0.7290227
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337074159488561674, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.022060184
       objectReference: {fileID: 0}
     - target: {fileID: 2337074159488561674, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -93.673
+      objectReference: {fileID: 0}
+    - target: {fileID: 2337074159488561674, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 3.696
       objectReference: {fileID: 0}
     - target: {fileID: 2337074159488561674, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -759,6 +771,7 @@ GameObject:
   - component: {fileID: 733985566}
   - component: {fileID: 733985571}
   - component: {fileID: 733985572}
+  - component: {fileID: 733985573}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -861,7 +874,7 @@ Transform:
   m_GameObject: {fileID: 733985565}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 31.05, y: 1.14, z: 29.83}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1768, y: 1.1768, z: 1.1768}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2105112838}
@@ -898,6 +911,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!95 &733985573
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733985565}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5626e27749ecd354f8af249b874073c3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &842567155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1584,7 +1618,7 @@ MonoBehaviour:
   rayRange: 100
   bulletDamage: 20
   muzzleParticles: {fileID: 555557486}
-  bulletImpactParticles: {fileID: 5644360911411305503, guid: 34046de5e2b7f20488f33374a1e16fc1, type: 3}
+  bulletImpactParticles: {fileID: 5644360911430534527, guid: 34046de5e2b7f20488f33374a1e16fc1, type: 3}
 --- !u!4 &1918788773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8111781018561290000, guid: 8a7437817844dce4894b049de73b75f2, type: 3}
