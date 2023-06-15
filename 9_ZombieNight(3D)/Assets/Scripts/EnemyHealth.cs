@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float bulletDamage)
     {
         health -= bulletDamage;
+        GetComponent<EnemyAI>().OnDamage();
         if(health <= 0)
         {
             Destroy(gameObject);

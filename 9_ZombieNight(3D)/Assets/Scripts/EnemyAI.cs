@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float playerDetectionRangeLimit = 20f;
     [SerializeField] float attackRange = 5f;
     [SerializeField] Color gismosColor;
+    [SerializeField] float turnSpeed = 20f;
 
     NavMeshAgent enemyNavMeshRef;
     float distanceToPlayer;
@@ -23,6 +24,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         CheckPlayerDistance();
+        EngagePlayer();
     }
 
     private void CheckPlayerDistance()
@@ -31,24 +33,31 @@ public class EnemyAI : MonoBehaviour
 
         if (distanceToPlayer <= playerDetectionRangeLimit)
         {
-            EngagePlayer();
+            playerDetected = true;
         }
-        
+
     }
 
     void EngagePlayer()
     {
-        if (distanceToPlayer >= enemyNavMeshRef.stoppingDistance)
+        if (playerDetected)
         {
-            ChasePlayer();
+            if (distanceToPlayer >= enemyNavMeshRef.stoppingDistance)
+            {
+                ChasePlayer();
+            }
+
+            if (distanceToPlayer <= enemyNavMeshRef.stoppingDistance)
+            {
+                FaceTarget();
+                AttckPlayer();
+            }
         }
-       
-        if(distanceToPlayer <= enemyNavMeshRef.stoppingDistance)
-        {
-            AttckPlayer();
-        }
-    
-        
+    }
+
+    public void OnDamage()
+    {
+        playerDetected = true;
     }
 
     private void ChasePlayer()
@@ -61,7 +70,13 @@ public class EnemyAI : MonoBehaviour
     void AttckPlayer()
     {
         GetComponent<Animator>().SetBool("attack", true);
-        Debug.Log("I will attack bitch");
+    }
+
+    void FaceTarget()
+    {
+        Vector3 direction = (playerRef.transform.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
     }
 
     void OnDrawGizmosSelected()
